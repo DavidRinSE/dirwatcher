@@ -1,4 +1,4 @@
-__author__ = "DavidRinSE" # David Richardson
+__author__ = "DavidRinSE"  # David Richardson
 
 import signal
 import time
