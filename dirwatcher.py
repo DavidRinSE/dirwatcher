@@ -10,13 +10,6 @@ exit_flag = False
 
 startTime = time.time()
 
-print("""
--------------------------------------------------------------------
-   Started dirwatcher.py
-   Start time was {}
--------------------------------------------------------------------
-""".format(time.ctime()))
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
@@ -28,6 +21,13 @@ formatter = logging.Formatter(
 
 ch.setFormatter(formatter)
 logger.addHandler(ch)
+
+logger.info("""
+-------------------------------------------------------------------
+   Started dirwatcher.py
+   Start time was {}
+-------------------------------------------------------------------
+""".format(time.ctime()))
 
 all_files = {}
 
@@ -160,11 +160,11 @@ def main(args):
         # put a sleep inside my while loop so I don't peg the cpu usage at 100%
         time.sleep(polling_int)
 
-    print("""
-        -------------------------------------------------------------------
-        Started dirwatcher.py
-        Uptime was {}
-        -------------------------------------------------------------------
+    logger.info("""
+-------------------------------------------------------------------
+   Started dirwatcher.py
+   Uptime was {}
+-------------------------------------------------------------------
         """.format(str(time.time() - startTime)))
 
 
